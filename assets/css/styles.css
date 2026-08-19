@@ -1,0 +1,352 @@
+/* ==================== DARK TEAL THEME TOKENS ==================== */
+:root {
+    /* Бирюзовая палитра + тёмный сланец */
+    --accent: #00BCD4;          /* Бирюзовый акцент */
+    --accent-dark: #00838F;     /* Тёмный бирюзовый */
+    --accent-glow: rgba(0,188,212,0.35);
+    --bg-deep: #0a1620;         /* Глубокий тёмно-синий фон */
+    --bg-surface: #122230;      /* Поверхности */
+    --bg-elevated: #1a2e3d;     /* Приподнятые поверхности */
+    --text-primary: #e0f7fa;    /* Светлый текст */
+    --text-secondary: #80cbc4;  /* Вторичный текст */
+    --outline: #2a4a5a;         /* Рамки */
+    --outline-hover: #00BCD4;   /* Рамки при наведении */
+    --danger: #ff6b6b;          /* Коралловый для ошибок */
+    --danger-bg: rgba(255,107,107,0.1);
+    --warning: #ffb74d;         /* Янтарный для предупреждений */
+    --warning-bg: rgba(255,183,77,0.1);
+    --success: #69f0ae;         /* Мятный для успеха */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', system-ui, sans-serif;
+}
+body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+}
+.hidden {
+    display: none !important;
+}
+.view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+/* ==================== MD BUTTONS (ALL OUTLINED) ==================== */
+.md-btn {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 10px 24px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+.md-btn:active {
+    transform: scale(0.96);
+}
+.md-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Outlined Accent (бирюзовый) */
+.md-btn-outlined-accent {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+.md-btn-outlined-accent:hover {
+    background: var(--accent-glow);
+    box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* Outlined Danger */
+.md-btn-outlined-danger {
+    border: 2px solid var(--danger);
+    color: var(--danger);
+}
+.md-btn-outlined-danger:hover {
+    background: var(--danger-bg);
+    box-shadow: 0 0 12px rgba(255,107,107,0.2);
+}
+
+/* Outlined Warning */
+.md-btn-outlined-warning {
+    border: 2px solid var(--warning);
+    color: var(--warning);
+}
+.md-btn-outlined-warning:hover {
+    background: var(--warning-bg);
+    box-shadow: 0 0 12px rgba(255,183,77,0.2);
+}
+
+/* Outlined Neutral */
+.md-btn-outlined {
+    border: 2px solid var(--outline);
+    color: var(--text-secondary);
+}
+.md-btn-outlined:hover {
+    border-color: var(--outline-hover);
+    color: var(--accent);
+    background: rgba(0,188,212,0.06);
+}
+
+/* Large Spin Button */
+.md-btn-outlined-accent-lg {
+    border: 3px solid var(--accent);
+    color: var(--accent);
+    padding: 16px 48px;
+    font-size: 1.05rem;
+    border-radius: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.md-btn-outlined-accent-lg:hover {
+    background: var(--accent-glow);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Ripple */
+.md-btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0,188,212,0.3);
+    transform: scale(0);
+    animation: rippleAnim 0.6s linear;
+    pointer-events: none;
+}
+@keyframes rippleAnim {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ==================== SELECT ==================== */
+.md-select {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border: 2px solid var(--outline);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+.md-select:hover, .md-select:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+.md-select-icon {
+    padding: 6px 8px;
+}
+
+/* ==================== ADMIN ==================== */
+.md-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--outline);
+}
+.md-topbar h1 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--accent);
+}
+.header-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.admin-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+.items-grid {
+    overflow-y: auto;
+    display: grid;
+    gap: 8px;
+    padding-bottom: 16px;
+    flex: 1;
+}
+.item-card {
+    background: var(--bg-surface);
+    padding: 16px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1.5px solid var(--outline);
+    transition: border-color 0.2s;
+}
+.item-card:hover {
+    border-color: var(--accent-dark);
+}
+.item-info h4 {
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+.item-info span {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+.item-actions button {
+    margin-left: 6px;
+    padding: 6px 10px;
+    background: transparent;
+    border: 1.5px solid var(--outline);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+.item-actions button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ==================== LOTTERY ==================== */
+#lottery-view {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.lottery-header {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+}
+.hidden-admin-link {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    opacity: 0.06;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10;
+}
+.hidden-admin-link:hover {
+    opacity: 0.3;
+}
+
+/* ==================== MACHINE ==================== */
+.machine-wrapper {
+    width: min(320px, 85vw);
+    margin-bottom: 32px;
+    border-radius: 24px;
+    background: var(--bg-surface);
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid var(--outline);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 20px var(--accent-glow);
+}
+.machine-svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+#drum-rotor {
+    will-change: transform;
+}
+
+/* Winner ball drop */
+#winner-group {
+    transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: translateY(-30px);
+}
+#winner-group.dropped {
+    opacity: 1 !important;
+    transform: translateY(0);
+}
+
+/* ==================== SPIN BUTTON PULSE ==================== */
+.pulse-btn {
+    animation: tealPulse 2s infinite;
+}
+@keyframes tealPulse {
+    0%   {
+        box-shadow: 0 0 0 0 var(--accent-glow);
+    }
+    70%  {
+        box-shadow: 0 0 0 20px rgba(0,188,212,0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0,188,212,0);
+    }
+}
+
+/* ==================== MODAL ==================== */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,22,32,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(6px);
+}
+.modal-content {
+    background: var(--bg-elevated);
+    padding: 32px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    border: 2px solid var(--accent-dark);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 30px var(--accent-glow);
+}
+.modal-content h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+.modal-content p {
+    color: var(--text-secondary);
+}
+.modal-content h3 {
+    font-size: 1.8rem;
+    margin: 20px 0;
+    color: var(--text-primary);
+    background: rgba(0,188,212,0.1);
+    padding: 16px;
+    border-radius: 16px;
+    border: 1.5px solid var(--accent-dark);
+    word-break: break-word;
+}
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px;
+}
+.modal-actions .md-btn {
+    flex: 1;
+    padding: 14px;
+    font-size: 0.95rem;
+}
