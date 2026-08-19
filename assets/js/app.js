@@ -35,7 +35,18 @@ const LANG_KEY = 'lotobox_lang';
 let items = [];
 let isSpinning = false;
 let currentWinner = null;
-let currentLang = localStorage.getItem(LANG_KEY) || 'ru';
+
+function getDefaultLang() {
+    const saved = localStorage.getItem(LANG_KEY);
+    if (saved)
+        return saved;
+
+    // Автоопределение по языку браузера
+    const browserLang = navigator.language || navigator.userLanguage;
+    return browserLang.startsWith('ru') ? 'ru' : 'en';
+}
+
+let currentLang = getDefaultLang();
 
 const t = (k) => I18N[currentLang]?.[k] || k;
 const $ = (s) => document.querySelector(s);
