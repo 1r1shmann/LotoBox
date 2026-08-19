@@ -838,6 +838,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     applyTranslations();
     navigate();
+
+    // Гарантируем синхронизацию селектов
+    $('#lang-switcher').value = currentLang;
+    $('#lang-switcher-main').value = currentLang;
+
     if ('serviceWorker' in navigator)
         navigator.serviceWorker.register('sw.js');
 });
