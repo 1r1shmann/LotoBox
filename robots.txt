@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://1r1shmann.github.io/lotobox/sitemap.xml
