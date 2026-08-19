@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- Primary SEO -->
+        <title>LotoBox — PWA-система для проведения беспроигрышных лотерей</title>
+        <meta name="description" content="LotoBox — бесплатная офлайн-система для проведения беспроигрышных лотерей на корпоративах и мероприятиях. Анимированный лототрон с физикой шариков, Material Design, два языка, работа без интернета.">
+        <meta name="keywords" content="лотерея, беспроигрышная лотерея, офлайн лотерея, PWA лотерея, лототрон, корпоративная лотерея, lottery, offline lottery, win-win lottery, pwa lottery, lototron, material design">
+        <meta name="author" content="1r1shmann">
+        <meta name="robots" content="index, follow">
+
+        <!-- Open Graph / Facebook / VK / Telegram -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="LotoBox">
+        <meta property="og:url" content="https://1r1shmann.github.io/lotobox/">
+        <meta property="og:title" content="LotoBox — Беспроигрышная офлайн-лотерея">
+        <meta property="og:description" content="Бесплатная PWA-система для проведения беспроигрышных лотерей. Лототрон с физикой шариков, Material Design, работа без интернета.">
+        <meta property="og:image" content="https://1r1shmann.github.io/lotobox/assets/images/og-image.jpg"> 
+        <meta property="og:image:width" content="1200"> 
+        <meta property="og:image:height" content="630"> 
+        <meta property="og:image:alt" content="LotoBox — PWA-система для проведения беспроигрышных лотерей"> 
+        <meta property="og:locale" content="ru_RU">
+        <meta property="og:locale:alternate" content="en_US">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:url" content="https://1r1shmann.github.io/lotobox/">
+        <meta name="twitter:title" content="LotoBox — PWA-система для проведения беспроигрышных лотерей">
+        <meta name="twitter:description" content="Бесплатная PWA-система для проведения беспроигрышных лотерей. Работает без интернета.">
+        <meta name="twitter:image" content="https://1r1shmann.github.io/lotobox/assets/images/og-image.jpg">
+        <meta name="twitter:creator" content="@1r1shmann">
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://1r1shmann.github.io/lotobox/">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+        <!--Sitemap-->
+        <link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- PWA Support -->
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#00838F">
+
+        <!-- Apple Touch Icon (для iOS) -->
+        <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+        <!-- iOS Web App Settings -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="LotoBox">
+
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () {
+                    (m[i].a = m[i].a || []).push(arguments)
+                };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) {
+                    if (document.scripts[j].src === r) {
+                        return;
+                    }
+                }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            })(window, document, 'script', 'https://mc.webvisor.org/metrika/tag_ww.js?id=111755685', 'ym');
+
+            ym(111755685, 'init', {ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true});
+        </script>
+        <!-- /Yandex.Metrika counter -->
+
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                "name": "LotoBox",
+                "url": "https://1r1shmann.github.io/lotobox/",
+                "description": "Бесплатная офлайн-система для проведения беспроигрышных лотерей с анимированным лототроном и физикой шариков",
+                "applicationCategory": "EntertainmentApplication",
+                "operatingSystem": "All",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "1r1shmann",
+                    "url": "https://github.com/1r1shmann"
+                },
+                "featureList": "Offline mode, Physics-based ball machine, Material Design 3, Weighted random, Bilingual RU/EN, PWA installable"
+            }
+        </script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- ADMIN -->
+            <section id="admin-view" class="view hidden">
+                <header class="md-topbar">
+                    <h1 data-i18n="adminTitle">Управление призами</h1>
+                    <div class="header-actions">
+                        <select id="lang-switcher" class="md-select"><option value="ru">🇷🇺 RU</option><option value="en">🇬🇧 EN</option></select>
+                        <button id="to-lottery-btn" class="md-btn md-btn-outlined" data-i18n="toLottery">К лототрону</button>
+                    </div>
+                </header>
+                <div class="admin-controls">
+                    <button id="add-item-btn" class="md-btn md-btn-outlined-accent" data-i18n="addPrize">+ Добавить приз</button>
+                    <div class="danger-zone">
+                        <button id="reset-all-btn" class="md-btn md-btn-outlined-danger" data-i18n="resetAll">Сбросить все в 0</button>
+                        <button id="fill-stock-btn" class="md-btn md-btn-outlined-warning" data-i18n="fillStock">Остаток = Количество</button>
+                    </div>
+                </div>
+                <div id="items-list" class="items-grid"></div>
+            </section>
+
+            <!-- LOTTERY -->
+            <section id="lottery-view" class="view hidden">
+                <div class="lottery-header">
+                    <select id="lang-switcher-main" class="md-select md-select-icon"><option value="ru">🇷🇺</option><option value="en">🇬🇧</option></select>
+                </div>
+                <div class="hidden-admin-link" id="admin-link-trigger">⚙️</div>
+
+                <!-- HEXAGONAL LOTOTRON WITH INVISIBLE CIRCLE PHYSICS -->
+                <div class="machine-wrapper">
+                    <svg class="machine-svg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lottery ball machine">
+                    <defs>
+                    <radialGradient id="ballYellow" cx="35%" cy="35%" r="65%">
+                    <stop offset="0%" stop-color="#fff9c4"/>
+                    <stop offset="45%" stop-color="#ffca28"/>
+                    <stop offset="100%" stop-color="#f57f17"/>
+                    </radialGradient>
+                    <radialGradient id="ballBlue" cx="35%" cy="35%" r="65%">
+                    <stop offset="0%" stop-color="#b2ebf2"/>
+                    <stop offset="45%" stop-color="#00bcd4"/>
+                    <stop offset="100%" stop-color="#006064"/>
+                    </radialGradient>
+                    <linearGradient id="hexFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#1a2a35"/>
+                    <stop offset="100%" stop-color="#0d1b24"/>
+                    </linearGradient>
+                    <clipPath id="circleClip">
+                        <circle cx="200" cy="200" r="125"/>
+                    </clipPath>
+                    </defs>
+
+                    <!-- Ножка -->
+                    <polygon points="200,355 135,465 265,465" fill="#1a2a35" stroke="#00BCD4" stroke-width="4" stroke-linejoin="round"/>
+                    <rect x="115" y="460" width="170" height="20" rx="6" fill="#263238" stroke="#00BCD4" stroke-width="2"/>
+
+                    <!-- Вращающаяся группа: корпус + шарики -->
+                    <g id="drum-rotor" style="transform-origin: 200px 200px;">
+                    <!-- Шестиугольный корпус -->
+                    <polygon points="200,50 330,125 330,275 200,350 70,275 70,125"
+                             fill="url(#hexFill)" stroke="#00BCD4" stroke-width="6" stroke-linejoin="round"/>
+
+                    <!-- Шарики (обрезаны по невидимому кругу) -->
+                    <g id="balls-container" clip-path="url(#circleClip)"></g>
+                    </g>
+
+                    <!-- Выпавший бирюзовый шарик -->
+                    <g id="winner-group" opacity="0">
+                    <circle cx="200" cy="400" r="24" fill="url(#ballBlue)" stroke="#00BCD4" stroke-width="4"/>
+                    <circle cx="200" cy="400" r="10" fill="#006064" stroke="#004D40" stroke-width="2.5"/>
+                    </g>
+                    </svg>
+                </div>
+
+                <button id="spin-btn" class="md-btn md-btn-outlined-accent-lg pulse-btn" data-i18n="spinBtn">КРУТИТЬ БАРАБАН</button>
+
+                <!-- MODAL -->
+                <div id="result-modal" class="modal hidden">
+                    <div class="modal-content">
+                        <h2 data-i18n="congrats">Поздравляем!</h2>
+                        <p data-i18n="youWon">Вы выиграли:</p>
+                        <h3 id="win-name">Prize Name</h3>
+                        <div class="modal-actions">
+                            <button id="cancel-win-btn" class="md-btn md-btn-outlined-danger" data-i18n="cancel">Отменить результат</button>
+                            <button id="confirm-win-btn" class="md-btn md-btn-outlined-accent" data-i18n="confirm">Подтвердить результат</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SEO fallback -->
+        <noscript>
+        <div style="padding:20px;color:#e0f7fa;background:#0d1b24;min-height:100vh;font-family:sans-serif;">
+            <h1>LotoBox — Беспроигрышная офлайн-лотерея</h1>
+            <p>Бесплатная PWA-система для проведения беспроигрышных лотерей на корпоративах, выставках и праздниках. Лототрон с физикой шариков, Material Design, работа без интернета, два языка.</p>
+            <p>Free offline PWA for hosting guaranteed-win lotteries. Physics-based ball machine, Material Design, works without internet, bilingual.</p>
+            <p>Author: <a href="https://github.com/1r1shmann" style="color:#00BCD4;">1r1shmann</a></p>
+        </div>
+        <div>
+            <img src="https://mc.yandex.ru/watch/111755685" style="position:absolute; left:-9999px;" alt="" />
+        </div>
+        </noscript>
+
+        <script src="assets/js/app.js"></script>
+    </body>
+</html>
