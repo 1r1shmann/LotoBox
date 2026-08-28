@@ -23,7 +23,7 @@
 
 ### 🚀 Usage
 1. Visit [https://1r1shmann.github.io/LotoBox/](https://1r1shmann.github.io/LotoBox/)
-2. First launch → Admin Panel → add prizes
+2. First launch → Admin Panel → click **"Fill with demo"** to instantly add sample prizes
 3. Tap "To Lottery" → hand device to participant
 4. Press **SPIN** → drum animates → confirm or cancel result
 
@@ -54,7 +54,7 @@ MIT © 2026 [1r1shmann](https://github.com/1r1shmann)
 
 ### 🚀 Использование
 1. Откройте [https://1r1shmann.github.io/LotoBox/](https://1r1shmann.github.io/LotoBox/)
-2. Первый запуск → Админка → добавьте призы
+2. Первый запуск → Админка → нажмите **"Заполнить демо"** для мгновенного добавления тестовых призов
 3. «К лототрону» → передайте устройство участнику
 4. **КРУТИТЬ** → барабан крутится → подтвердите или отмените
 
