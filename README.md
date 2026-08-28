@@ -22,15 +22,15 @@
 - 🔍 **SEO Optimized** — Open Graph, JSON-LD, semantic HTML
 
 ### 🚀 Usage
-1. Visit [https://1r1shmann.github.io/lotobox/](https://1r1shmann.github.io/lotobox/)
+1. Visit [https://1r1shmann.github.io/LotoBox/](https://1r1shmann.github.io/LotoBox/)
 2. First launch → Admin Panel → add prizes
 3. Tap "To Lottery" → hand device to participant
 4. Press **SPIN** → drum animates → confirm or cancel result
 
 ### 🛠 Self-Hosting
 ```bash
-git clone https://github.com/1r1shmann/lotobox.git
-cd lotobox && npx serve .
+git clone https://github.com/1r1shmann/LotoBox.git
+cd LotoBox && npx serve .
 ```
 
 ### 📄 License
@@ -53,15 +53,15 @@ MIT © 2026 [1r1shmann](https://github.com/1r1shmann)
 - 🔍 **SEO** — Open Graph, JSON-LD, семантический HTML
 
 ### 🚀 Использование
-1. Откройте [https://1r1shmann.github.io/lotobox/](https://1r1shmann.github.io/lotobox/)
+1. Откройте [https://1r1shmann.github.io/LotoBox/](https://1r1shmann.github.io/LotoBox/)
 2. Первый запуск → Админка → добавьте призы
 3. «К лототрону» → передайте устройство участнику
 4. **КРУТИТЬ** → барабан крутится → подтвердите или отмените
 
 ### 🛠 Локальный запуск
 ```bash
-git clone https://github.com/1r1shmann/lotobox.git
-cd lotobox && npx serve .
+git clone https://github.com/1r1shmann/LotoBox.git
+cd LotoBox && npx serve .
 ```
 
 ### 📄 Лицензия
