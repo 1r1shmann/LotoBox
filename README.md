@@ -3,7 +3,7 @@
 [🇷🇺 Русский](#русский) | [🇬🇧 English](#english)
 
 > **Author:** [1r1shmann](https://github.com/1r1shmann)  
-> **Live Demo:** [https://1r1shmann.github.io/lotobox/](https://1r1shmann.github.io/lotobox/)
+> **Live Demo:** [https://1r1shmann.github.io/LotoBox/](https://1r1shmann.github.io/LotoBox/)
 
 ---
 
