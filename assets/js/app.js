@@ -12,7 +12,9 @@ const I18N = {
         fillConfirm: 'Установить остаток равным общему количеству?',
         editName: 'Наименование приза:', editTotal: 'Количество всего:',
         editRemain: 'Остаток:', newItemName: 'Название нового приза:',
-        remaining: 'Остаток', total: 'Всего'
+        remaining: 'Остаток', total: 'Всего',
+        fillDemo: 'Заполнить демо',
+        fillDemoConfirm: 'Заполнить демо-данными? Текущие данные будут заменены.'
     },
     en: {
         adminTitle: 'Prize Management', toLottery: 'To Lottery',
@@ -26,7 +28,9 @@ const I18N = {
         fillConfirm: 'Set remaining equal to total for all prizes?',
         editName: 'Prize name:', editTotal: 'Total quantity:',
         editRemain: 'Remaining:', newItemName: 'New prize name:',
-        remaining: 'Remaining', total: 'Total'
+        remaining: 'Remaining', total: 'Total',
+        fillDemo: 'Fill with demo',
+        fillDemoConfirm: 'Fill with demo data? Current data will be replaced.'
     }
 };
 
@@ -453,6 +457,23 @@ function navigate() {
     }
 }
 
+// ==================== DEMO DATA ====================
+function getDemoData() {
+    return currentLang === 'ru' ? [
+        {id: Date.now() + 1, name: 'Футболка', total: 50, remaining: 50},
+        {id: Date.now() + 2, name: 'Кружка', total: 30, remaining: 30},
+        {id: Date.now() + 3, name: 'Ручка', total: 100, remaining: 100},
+        {id: Date.now() + 4, name: 'Блокнот', total: 40, remaining: 40},
+        {id: Date.now() + 5, name: 'Брелок', total: 75, remaining: 75}
+    ] : [
+        {id: Date.now() + 1, name: 'T-Shirt', total: 50, remaining: 50},
+        {id: Date.now() + 2, name: 'Mug', total: 30, remaining: 30},
+        {id: Date.now() + 3, name: 'Pen', total: 100, remaining: 100},
+        {id: Date.now() + 4, name: 'Notebook', total: 40, remaining: 40},
+        {id: Date.now() + 5, name: 'Keychain', total: 75, remaining: 75}
+    ];
+}
+
 // ==================== ADMIN ====================
 function renderAdminList() {
     const list = $('#items-list');
@@ -460,16 +481,27 @@ function renderAdminList() {
     items.forEach((item, i) => {
         const card = document.createElement('div');
         card.className = 'item-card';
-        card.innerHTML = `<div class="item-info"><h4>${item.name}</h4><span>${t('remaining')}: ${item.remaining} / ${t('total')}: ${item.total}</span></div><div class="item-actions"><button onclick="editItem(${i})">✏️</button><button onclick="deleteItem(${i})">🗑️</button></div>`;
+        card.innerHTML = `
+            <div class="item-info">
+                <h4>${item.name}</h4>
+                <span>${t('remaining')}: ${item.remaining} / ${t('total')}: ${item.total}</span>
+            </div>
+            <div class="item-actions">
+                <button onclick="editItem(${i})">✏️</button>
+                <button onclick="deleteItem(${i})">🗑️</button>
+            </div>
+        `;
         list.appendChild(card);
     });
 }
+
 window.deleteItem = (i) => {
     if (confirm(t('deleteConfirm'))) {
         items.splice(i, 1);
         saveItems();
     }
 };
+
 window.editItem = (i) => {
     const item = items[i];
     const name = prompt(t('editName'), item.name);
@@ -482,6 +514,7 @@ window.editItem = (i) => {
         saveItems();
     }
 };
+
 $('#add-item-btn').onclick = () => {
     const name = prompt(t('newItemName'));
     if (!name)
@@ -492,18 +525,29 @@ $('#add-item-btn').onclick = () => {
     items.push({id: Date.now(), name, total, remaining: total});
     saveItems();
 };
+
+// ОБНОВЛЕННАЯ КНОПКА: Заполнить демо-данными с учетом языка
+$('#fill-demo-btn').onclick = () => {
+    if (confirm(t('fillDemoConfirm') || 'Заполнить демо-данными? Текущие данные будут заменены.')) {
+        items = getDemoData();
+        saveItems();
+    }
+};
+
 $('#reset-all-btn').onclick = () => {
     if (confirm(t('resetConfirm'))) {
         items = items.map(i => ({...i, total: 0, remaining: 0}));
         saveItems();
     }
 };
+
 $('#fill-stock-btn').onclick = () => {
     if (confirm(t('fillConfirm'))) {
         items = items.map(i => ({...i, remaining: i.total}));
         saveItems();
     }
 };
+
 $('#to-lottery-btn').onclick = navigate;
 $('#admin-link-trigger').onclick = () => {
     $('#admin-view').classList.remove('hidden');
